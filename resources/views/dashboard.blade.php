@@ -4,41 +4,55 @@
 
 @section('content')
 <style>
+ .arena-header{background:linear-gradient(135deg,#12311f,#164e63 58%,#7c2d12);border-radius:1rem;color:white;padding:1.5rem;box-shadow:0 22px 55px rgba(15,23,42,.18);position:relative;overflow:hidden}
+ .arena-header:after{content:"";position:absolute;right:-45px;top:-45px;width:180px;height:180px;border-radius:50%;border:26px solid rgba(255,255,255,.12)}
+ .arena-header>*{position:relative;z-index:1}
+ .schedule-table{border-color:#dbe4ef}
  .schedule-table th,.schedule-table td{font-size:.78rem;vertical-align:middle}
- .schedule-table .field-col{min-width:190px;position:sticky;left:0;background:white;z-index:2}
+ .schedule-table .field-col{min-width:210px;position:sticky;left:0;background:white;z-index:2;box-shadow:8px 0 18px rgba(15,23,42,.06)}
  .schedule-table thead .field-col{z-index:3}
- .schedule-slot{min-width:74px;height:48px;text-align:center}
- .schedule-slot.available{background:#f0fdf4;color:#166534}
- .schedule-slot.booked{background:#fee2e2;color:#991b1b}
- .schedule-code{display:block;font-size:.68rem;line-height:1.1}
+ .schedule-slot{min-width:78px;height:50px;text-align:center;font-weight:750;border:2px solid white}
+ .schedule-slot.available{background:#e9fbe9;color:#15803d}
+ .schedule-slot.booked{background:#ffebe5;color:#9a3412}
+ .schedule-slot:hover{outline:2px solid #2563eb;outline-offset:-2px}
+ .schedule-code{display:block;font-size:.68rem;line-height:1.1;color:#7c2d12}
+ .field-type{background:#e0f2fe;color:#075985}
+ .table-card .card-body{padding:1.25rem}
 </style>
 
-<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
- <h2 class="mb-0">Dashboard</h2>
+<div class="arena-header d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+ <div>
+  <div class="text-white-50 fw-semibold mb-1">Arena Overview</div>
+  <h2 class="page-title mb-1">Dashboard SM Sport Center</h2>
+  <div class="text-white-50">Pantau reservasi, lapangan, dan slot kosong dalam satu layar.</div>
+ </div>
  <form class="d-flex align-items-end gap-2" method="get" action="{{ route('dashboard') }}">
   <div>
-   <label class="form-label small mb-1" for="tanggal">Tanggal Jadwal</label>
+   <label class="form-label small mb-1 text-white-50" for="tanggal">Tanggal Jadwal</label>
    <input class="form-control" type="date" id="tanggal" name="tanggal" value="{{ $tanggalJadwal }}">
   </div>
-  <button class="btn btn-primary">Cek</button>
-  <a class="btn btn-outline-secondary" href="{{ route('dashboard') }}">Hari Ini</a>
+  <button class="btn btn-light">Cek</button>
+  <a class="btn btn-outline-light" href="{{ route('dashboard') }}">Hari Ini</a>
  </form>
 </div>
 
 <div class="row g-3 mb-4">
- <div class="col-md-3"><div class="card shadow-sm p-3"><small>Lapangan</small><h3>{{ $jumlahLapangan }}</h3></div></div>
- <div class="col-md-3"><div class="card shadow-sm p-3"><small>Pelanggan</small><h3>{{ $jumlahPelanggan }}</h3></div></div>
- <div class="col-md-3"><div class="card shadow-sm p-3"><small>Reservasi Hari Ini</small><h3>{{ $reservasiHariIni }}</h3></div></div>
- <div class="col-md-3"><div class="card shadow-sm p-3"><small>Pendapatan Bulan Ini</small><h5>Rp{{ number_format($pendapatanBulanIni,0,',','.') }}</h5></div></div>
+ <div class="col-md-3"><div class="card metric-card p-3"><small class="metric-label">Lapangan</small><p class="metric-value text-success">{{ $jumlahLapangan }}</p></div></div>
+ <div class="col-md-3"><div class="card metric-card p-3"><small class="metric-label">Pelanggan</small><p class="metric-value text-primary">{{ $jumlahPelanggan }}</p></div></div>
+ <div class="col-md-3"><div class="card metric-card p-3"><small class="metric-label">Reservasi Hari Ini</small><p class="metric-value text-warning">{{ $reservasiHariIni }}</p></div></div>
+ <div class="col-md-3"><div class="card metric-card p-3"><small class="metric-label">Pendapatan Bulan Ini</small><h5 class="fw-bold mt-2 mb-0">Rp{{ number_format($pendapatanBulanIni,0,',','.') }}</h5></div></div>
 </div>
 
-<div class="card shadow-sm mb-4">
+<div class="card table-card mb-4">
  <div class="card-body">
   <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
-   <h5 class="mb-0">Jadwal Lapangan 24 Jam</h5>
+   <div>
+    <h5 class="mb-0 fw-bold">Jadwal Lapangan 24 Jam</h5>
+    <div class="text-muted small">Tanggal {{ \Carbon\Carbon::parse($tanggalJadwal)->format('d/m/Y') }}</div>
+   </div>
    <div class="d-flex gap-2 small">
     <span><span class="badge text-bg-success">Kosong</span></span>
-    <span><span class="badge text-bg-danger">Terisi</span></span>
+    <span><span class="badge text-bg-warning">Terisi</span></span>
    </div>
   </div>
   <div class="table-responsive">
@@ -56,7 +70,7 @@
       <tr>
        <th class="field-col">
         {{ $baris['lapangan']->nama_lapangan }}
-        <span class="badge bg-secondary ms-1">{{ ucfirst($baris['lapangan']->jenis) }}</span>
+        <span class="badge field-type ms-1">{{ ucfirst($baris['lapangan']->jenis) }}</span>
        </th>
        @foreach($baris['slots'] as $jam => $reservasi)
         @if($reservasi)
@@ -80,9 +94,9 @@
  </div>
 </div>
 
-<div class="card shadow-sm">
+<div class="card">
  <div class="card-body">
-  <h5>Reservasi Terbaru</h5>
+  <h5 class="fw-bold">Reservasi Terbaru</h5>
   <div class="table-responsive">
    <table class="table">
     <thead><tr><th>Kode</th><th>Pelanggan</th><th>Lapangan</th><th>Tanggal</th><th>Jam</th><th>Status</th></tr></thead>
