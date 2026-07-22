@@ -53,7 +53,7 @@
    </div>
 
    <div class="row">
-    <div class="col-md-6 mb-3">
+    <div class="col-md-4 mb-3">
      <label class="form-label fw-semibold">DP Wajib</label>
      <div class="input-group">
       <span class="input-group-text">Rp</span>
@@ -61,7 +61,20 @@
      </div>
      <div class="form-text">Minimal DP Rp50.000 untuk membuat reservasi.</div>
     </div>
-    <div class="col-md-6 mb-3">
+    <div class="col-md-4 mb-3">
+     <label class="form-label fw-semibold">Status Reservasi</label>
+     @if(auth()->user()->role==='admin')
+      <select name="status_reservasi" class="form-select" required>
+       <option value="menunggu" @selected(old('status_reservasi',$item->status_reservasi ?: 'menunggu')==='menunggu')>Menunggu</option>
+       <option value="dikonfirmasi" @selected(old('status_reservasi',$item->status_reservasi)==='dikonfirmasi')>Dikonfirmasi</option>
+       <option value="selesai" @selected(old('status_reservasi',$item->status_reservasi)==='selesai')>Selesai</option>
+       <option value="dibatalkan" @selected(old('status_reservasi',$item->status_reservasi)==='dibatalkan')>Dibatalkan</option>
+      </select>
+     @else
+      <input type="text" class="form-control" value="{{ ucfirst($item->status_reservasi ?: 'menunggu') }}" disabled>
+     @endif
+    </div>
+    <div class="col-md-4 mb-3">
      <label class="form-label fw-semibold">Status Pembayaran</label>
      @if(auth()->user()->role==='admin')
       <select name="status_pembayaran" class="form-select" required>

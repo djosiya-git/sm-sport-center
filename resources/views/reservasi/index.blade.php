@@ -56,7 +56,22 @@
         <span class="badge {{ $x->status_pembayaran==='lunas' ? 'text-bg-success' : 'text-bg-warning' }}">{{ $x->status_pembayaran==='lunas' ? 'Lunas' : 'DP / Sebagian' }}</span>
        @endif
       </td>
-      <td><span class="badge text-bg-info">{{ ucfirst($x->status_reservasi) }}</span></td>
+      <td>
+       @if(auth()->user()->role==='admin')
+        <form method="post" action="{{ route('reservasi.status-reservasi',$x) }}">
+         @csrf
+         @method('PATCH')
+         <select name="status_reservasi" class="form-select form-select-sm" onchange="this.form.submit()">
+          <option value="menunggu" @selected($x->status_reservasi==='menunggu')>Menunggu</option>
+          <option value="dikonfirmasi" @selected($x->status_reservasi==='dikonfirmasi')>Dikonfirmasi</option>
+          <option value="selesai" @selected($x->status_reservasi==='selesai')>Selesai</option>
+          <option value="dibatalkan" @selected($x->status_reservasi==='dibatalkan')>Dibatalkan</option>
+         </select>
+        </form>
+       @else
+        <span class="badge text-bg-info">{{ ucfirst($x->status_reservasi) }}</span>
+       @endif
+      </td>
       <td>
        <a class="btn btn-sm btn-warning" href="{{ route('reservasi.edit',$x) }}">Edit</a>
        <form class="d-inline" method="post" action="{{ route('reservasi.destroy',$x) }}">

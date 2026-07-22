@@ -20,6 +20,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::patch('/reservasi/{reservasi}/status-reservasi', [ReservasiController::class, 'updateReservationStatus'])->middleware('role:admin')->name('reservasi.status-reservasi');
     Route::patch('/reservasi/{reservasi}/status-pembayaran', [ReservasiController::class, 'updatePaymentStatus'])->middleware('role:admin')->name('reservasi.status-pembayaran');
     Route::resource('reservasi', ReservasiController::class);
     Route::middleware('role:admin')->group(function () {
