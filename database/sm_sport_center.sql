@@ -50,8 +50,9 @@ CREATE TABLE reservasis (
  durasi INT UNSIGNED NOT NULL,
  harga_per_jam DECIMAL(12,2) NOT NULL,
  total_harga DECIMAL(12,2) NOT NULL,
+ dp_amount DECIMAL(12,2) NOT NULL DEFAULT 50000,
  status_reservasi ENUM('menunggu','dikonfirmasi','selesai','dibatalkan') NOT NULL DEFAULT 'menunggu',
- status_pembayaran ENUM('belum_bayar','sebagian','lunas') NOT NULL DEFAULT 'belum_bayar',
+ status_pembayaran ENUM('belum_bayar','sebagian','lunas') NOT NULL DEFAULT 'sebagian',
  catatan TEXT NULL,
  created_at TIMESTAMP NULL,
  updated_at TIMESTAMP NULL,
@@ -67,3 +68,12 @@ INSERT INTO lapangans(kode_lapangan,nama_lapangan,jenis,harga_per_jam,status,cre
 ('BDM-01','Lapangan Badminton 1','badminton',50000,'tersedia',NOW(),NOW()),
 ('BDM-02','Lapangan Badminton 2','badminton',50000,'tersedia',NOW(),NOW()),
 ('BDM-03','Lapangan Badminton 3','badminton',50000,'tersedia',NOW(),NOW());
+
+INSERT INTO users(name,email,password,role,created_at,updated_at) VALUES
+('Administrator','admin@smsport.test','$2y$10$8DoMVZ411FTATK0D2fZE.uFSIW5tpm2c53tehbVQNp0U9VzPkiRGq','admin',NOW(),NOW()),
+('Budi Santoso','pelanggan@smsport.test','$2y$10$GDINpl4XuqHceLObXicuyO4/cdukmKmuqo54.k.5M8ROvbQD7FZdW','pelanggan',NOW(),NOW()),
+('Siti Aminah','siti@smsport.test','$2y$10$GDINpl4XuqHceLObXicuyO4/cdukmKmuqo54.k.5M8ROvbQD7FZdW','pelanggan',NOW(),NOW());
+
+INSERT INTO pelanggans(user_id,kode_pelanggan,nama,no_telepon,alamat,created_at,updated_at) VALUES
+((SELECT id FROM users WHERE email='pelanggan@smsport.test'),'PLG-0001','Budi Santoso','081234567890','Jakarta',NOW(),NOW()),
+((SELECT id FROM users WHERE email='siti@smsport.test'),'PLG-0002','Siti Aminah','082233445566','Bekasi',NOW(),NOW());

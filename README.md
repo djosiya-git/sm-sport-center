@@ -59,5 +59,19 @@ Jika hosting tidak mengizinkan document root ke `/public`, baca `docs/PANDUAN-HO
 php artisan test
 ```
 
+## Bukti skenario sertifikasi
+Dokumen bukti tersedia pada folder `docs/`.
+
+- `docs/INDEX-BUKTI-SKENARIO.md`
+- `docs/ANALISIS-KEBUTUHAN.md`
+- `docs/ANALISIS-SKALABILITAS.md`
+- `docs/ERD-DAN-SQL.md`
+- `docs/DOKUMENTASI-KODE-PROGRAM.md`
+- `docs/LAPORAN-DEBUGGING.md`
+- `docs/HASIL-PROFILING.md`
+- `docs/DOKUMEN-TESTING.md`
+- `docs/LAPORAN-INTEGRASI-TESTING.md`
+- `docs/PERANCANGAN-DAN-DEMO.md`
+
 ## Catatan keamanan
 Segera ubah password akun demo setelah deployment. Jangan pernah commit file `.env` ke GitHub.
