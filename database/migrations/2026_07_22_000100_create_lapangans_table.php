@@ -1,0 +1,3 @@
+<?php
+use Illuminate\Database\Migrations\Migration; use Illuminate\Database\Schema\Blueprint; use Illuminate\Support\Facades\Schema;
+return new class extends Migration { public function up(): void {Schema::create('lapangans',function(Blueprint $t){$t->id();$t->string('kode_lapangan',20)->unique();$t->string('nama_lapangan',100);$t->enum('jenis',['futsal','badminton']);$t->decimal('harga_per_jam',12,2);$t->enum('status',['tersedia','perawatan','nonaktif'])->default('tersedia');$t->text('keterangan')->nullable();$t->timestamps();$t->index(['jenis','status']);});} public function down(): void {Schema::dropIfExists('lapangans');} };
