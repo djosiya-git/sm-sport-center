@@ -23,6 +23,7 @@ class ReservasiController extends Controller {
   return view('reservasi.form',$this->formData($item));
  }
  public function store(Request $r): RedirectResponse { $data=$this->validated($r); $this->save($data); return redirect()->route('reservasi.index')->with('success','Reservasi berhasil disimpan.'); }
+ public function show(Reservasi $reservasi): View { $this->authorizeOwner($reservasi); $reservasi->load(['pelanggan','lapangan']); return view('reservasi.receipt',['item'=>$reservasi]); }
  public function edit(Reservasi $reservasi): View { $this->authorizeOwner($reservasi); return view('reservasi.form',$this->formData($reservasi)); }
  public function update(Request $r,Reservasi $reservasi): RedirectResponse { $this->authorizeOwner($reservasi); $data=$this->validated($r); $this->save($data,$reservasi); return redirect()->route('reservasi.index')->with('success','Reservasi berhasil diperbarui.'); }
  public function updateReservationStatus(Request $r,Reservasi $reservasi): RedirectResponse { $data=$r->validate(['status_reservasi'=>['required',Rule::in(['menunggu','dikonfirmasi','selesai','dibatalkan'])]]); $reservasi->update($data); return back()->with('success','Status reservasi berhasil diperbarui.'); }

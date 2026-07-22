@@ -73,6 +73,7 @@
        @endif
       </td>
       <td>
+       <a class="btn btn-sm btn-outline-primary" href="{{ route('reservasi.show',$x) }}">Struk</a>
        <a class="btn btn-sm btn-warning" href="{{ route('reservasi.edit',$x) }}">Edit</a>
        <form class="d-inline" method="post" action="{{ route('reservasi.destroy',$x) }}">
         @csrf
