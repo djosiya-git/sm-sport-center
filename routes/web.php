@@ -20,6 +20,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::patch('/reservasi/{reservasi}/status-pembayaran', [ReservasiController::class, 'updatePaymentStatus'])->middleware('role:admin')->name('reservasi.status-pembayaran');
     Route::resource('reservasi', ReservasiController::class);
     Route::middleware('role:admin')->group(function () {
         Route::resource('lapangan', LapanganController::class)->except('show');
