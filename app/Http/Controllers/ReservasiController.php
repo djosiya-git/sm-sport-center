@@ -12,7 +12,15 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 class ReservasiController extends Controller {
  public function index(Request $r): View { $q=Reservasi::with(['pelanggan','lapangan']); if(auth()->user()->role==='pelanggan')$q->where('pelanggan_id',auth()->user()->pelanggan?->id??0); $q->when($r->q,function($x,$v){$x->where(fn($z)=>$z->where('kode_reservasi','like',"%$v%")->orWhereHas('pelanggan',fn($p)=>$p->where('nama','like',"%$v%"))->orWhereHas('lapangan',fn($l)=>$l->where('nama_lapangan','like',"%$v%")));})->when($r->tanggal,fn($x,$v)=>$x->whereDate('tanggal',$v)); return view('reservasi.index',['data'=>$q->latest('tanggal')->latest('jam_mulai')->paginate(10)->withQueryString()]); }
- public function create(): View { return view('reservasi.form',$this->formData(new Reservasi)); }
+ public function create(Request $r): View {
+  $r->validate(['lapangan_id'=>['nullable','exists:lapangans,id'],'tanggal'=>['nullable','date','after_or_equal:today'],'jam_mulai'=>['nullable','date_format:H:i']]);
+  $item=new Reservasi;
+  $item->lapangan_id=$r->integer('lapangan_id') ?: null;
+  $item->tanggal=$r->tanggal ? Carbon::parse($r->tanggal) : null;
+  $item->jam_mulai=$r->jam_mulai;
+  $item->jam_selesai=$r->jam_mulai ? ($r->jam_mulai==='23:00' ? '23:59' : Carbon::createFromFormat('H:i',$r->jam_mulai)->addHour()->format('H:i')) : null;
+  return view('reservasi.form',$this->formData($item));
+ }
  public function store(Request $r): RedirectResponse { $data=$this->validated($r); $this->save($data); return redirect()->route('reservasi.index')->with('success','Reservasi berhasil disimpan.'); }
  public function edit(Reservasi $reservasi): View { $this->authorizeOwner($reservasi); return view('reservasi.form',$this->formData($reservasi)); }
  public function update(Request $r,Reservasi $reservasi): RedirectResponse { $this->authorizeOwner($reservasi); $data=$this->validated($r); $this->save($data,$reservasi); return redirect()->route('reservasi.index')->with('success','Reservasi berhasil diperbarui.'); }

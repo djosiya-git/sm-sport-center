@@ -15,6 +15,8 @@
  .schedule-slot.available{background:#e9fbe9;color:#15803d}
  .schedule-slot.booked{background:#ffebe5;color:#9a3412}
  .schedule-slot:hover{outline:2px solid #2563eb;outline-offset:-2px}
+ .slot-link{display:grid;place-items:center;width:100%;height:100%;color:inherit;text-decoration:none}
+ .slot-link:hover{color:#14532d}
  .schedule-code{display:block;font-size:.68rem;line-height:1.1;color:#7c2d12}
  .field-type{background:#e0f2fe;color:#075985}
  .table-card .card-body{padding:1.25rem}
@@ -81,7 +83,13 @@
           @endif
          </td>
         @else
-         <td class="schedule-slot available">Kosong</td>
+         <td class="schedule-slot available">
+          @if($tanggalJadwal >= today()->toDateString())
+           <a class="slot-link" href="{{ route('reservasi.create',['lapangan_id'=>$baris['lapangan']->id,'tanggal'=>$tanggalJadwal,'jam_mulai'=>sprintf('%02d:00',$jam)]) }}">Kosong</a>
+          @else
+           Kosong
+          @endif
+         </td>
         @endif
        @endforeach
       </tr>

@@ -51,8 +51,12 @@
        <input class="form-check-input" type="checkbox" name="remember" id="remember">
        <label class="form-check-label" for="remember">Ingat saya</label>
       </div>
-      <button class="btn btn-primary w-100">Login</button>
+     <button class="btn btn-primary w-100">Login</button>
      </form>
+     <div class="text-center small mt-3">
+      Belum punya akun pelanggan?
+      <a class="fw-bold text-decoration-none" href="{{ route('register') }}">Daftar sekarang</a>
+     </div>
      <div class="demo-box small text-muted mt-4">
       <strong class="text-dark">Akun demo</strong><br>
       Admin: admin@smsport.test / admin12345<br>
