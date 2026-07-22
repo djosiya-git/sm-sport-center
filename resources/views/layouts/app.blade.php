@@ -36,6 +36,9 @@
  </style>
 </head>
 <body>
+@php
+ $adminPendingReservations=auth()->user()->role==='admin' ? \App\Models\Reservasi::where('status_reservasi','menunggu')->count() : 0;
+@endphp
 <nav class="navbar navbar-dark d-lg-none" style="background:#101827">
  <div class="container-fluid">
   <span class="navbar-brand fw-bold">SM Sport Center</span>
@@ -53,7 +56,10 @@
    </div>
    <nav class="d-grid gap-1">
     <a class="{{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}"><span class="nav-dot"></span>Dashboard</a>
-    <a class="{{ request()->routeIs('reservasi.*') ? 'active' : '' }}" href="{{ route('reservasi.index') }}"><span class="nav-dot"></span>Reservasi</a>
+    <a class="{{ request()->routeIs('reservasi.*') ? 'active' : '' }}" href="{{ route('reservasi.index') }}">
+     <span class="nav-dot"></span>Reservasi
+     @if($adminPendingReservations>0)<span class="badge text-bg-warning ms-auto">{{ $adminPendingReservations }}</span>@endif
+    </a>
     @if(auth()->user()->role==='admin')
      <a class="{{ request()->routeIs('lapangan.*') ? 'active' : '' }}" href="{{ route('lapangan.index') }}"><span class="nav-dot"></span>Lapangan</a>
      <a class="{{ request()->routeIs('pelanggan.*') ? 'active' : '' }}" href="{{ route('pelanggan.index') }}"><span class="nav-dot"></span>Pelanggan</a>
@@ -73,6 +79,12 @@
   <main class="col-lg-10 p-4">
    @if(session('success'))<div class="alert alert-success">{{ session('success') }}</div>@endif
    @if(session('error'))<div class="alert alert-danger">{{ session('error') }}</div>@endif
+   @if($adminPendingReservations>0)
+    <div class="alert alert-warning d-flex flex-wrap justify-content-between align-items-center gap-2">
+     <div><strong>{{ $adminPendingReservations }} reservasi baru</strong> masih menunggu konfirmasi admin.</div>
+     <a class="btn btn-sm btn-warning" href="{{ route('reservasi.index',['status_reservasi'=>'menunggu']) }}">Lihat Reservasi</a>
+    </div>
+   @endif
    @yield('content')
   </main>
  </div>

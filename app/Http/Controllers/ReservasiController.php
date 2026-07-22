@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 class ReservasiController extends Controller {
- public function index(Request $r): View { $q=Reservasi::with(['pelanggan','lapangan']); if(auth()->user()->role==='pelanggan')$q->where('pelanggan_id',auth()->user()->pelanggan?->id??0); $q->when($r->q,function($x,$v){$x->where(fn($z)=>$z->where('kode_reservasi','like',"%$v%")->orWhereHas('pelanggan',fn($p)=>$p->where('nama','like',"%$v%"))->orWhereHas('lapangan',fn($l)=>$l->where('nama_lapangan','like',"%$v%")));})->when($r->tanggal,fn($x,$v)=>$x->whereDate('tanggal',$v)); return view('reservasi.index',['data'=>$q->latest('tanggal')->latest('jam_mulai')->paginate(10)->withQueryString()]); }
+ public function index(Request $r): View { $q=Reservasi::with(['pelanggan','lapangan']); if(auth()->user()->role==='pelanggan')$q->where('pelanggan_id',auth()->user()->pelanggan?->id??0); $q->when($r->q,function($x,$v){$x->where(fn($z)=>$z->where('kode_reservasi','like',"%$v%")->orWhereHas('pelanggan',fn($p)=>$p->where('nama','like',"%$v%"))->orWhereHas('lapangan',fn($l)=>$l->where('nama_lapangan','like',"%$v%")));})->when($r->tanggal,fn($x,$v)=>$x->whereDate('tanggal',$v))->when($r->status_reservasi,fn($x,$v)=>$x->where('status_reservasi',$v)); return view('reservasi.index',['data'=>$q->latest('tanggal')->latest('jam_mulai')->paginate(10)->withQueryString()]); }
  public function create(Request $r): View {
   $r->validate(['lapangan_id'=>['nullable','exists:lapangans,id'],'tanggal'=>['nullable','date','after_or_equal:today'],'jam_mulai'=>['nullable','date_format:H:i']]);
   $item=new Reservasi;
