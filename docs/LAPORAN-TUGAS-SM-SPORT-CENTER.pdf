@@ -1,0 +1,342 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R] /Count 7 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Length 3260 >>
+stream
+BT /F1 8 Tf 50 40 Td (Laporan Tugas SM Sport Center - 1) Tj ET
+BT /F2 16 Tf 56 780 Td (LAPORAN TUGAS) Tj ET
+BT /F2 16 Tf 56 737 Td (PERANCANGAN SISTEM RESERVASI LAPANGAN) Tj ET
+BT /F2 16 Tf 56 715 Td (OLAHRAGA PADA SM SPORT CENTER BERBASIS WEB) Tj ET
+BT /F2 14 Tf 56 672 Td (Identitas Proyek) Tj ET
+BT /F1 10.5 Tf 56 643 Td (Nama aplikasi: SM Sport Center) Tj ET
+BT /F1 10.5 Tf 56 628 Td (Jenis aplikasi: Sistem reservasi lapangan olahraga berbasis web) Tj ET
+BT /F1 10.5 Tf 56 613 Td (Framework: Laravel 12) Tj ET
+BT /F1 10.5 Tf 56 598 Td (Database: MySQL/MariaDB) Tj ET
+BT /F1 10.5 Tf 56 583 Td (Repository: https://github.com/djosiya-git/sm-sport-center.git) Tj ET
+BT /F1 10.5 Tf 56 568 Td (URL production: https://smsport.d-webindigital.web.id) Tj ET
+BT /F2 14 Tf 56 538 Td (Kata Pengantar) Tj ET
+BT /F1 10.5 Tf 56 509 Td (Laporan ini disusun sebagai bukti penyelesaian tugas perancangan dan implementasi sistem) Tj ET
+BT /F1 10.5 Tf 56 494 Td (reservasi lapangan olahraga pada SM Sport Center berbasis web. Sistem ini dibuat untuk) Tj ET
+BT /F1 10.5 Tf 56 479 Td (membantu proses reservasi lapangan futsal dan badminton agar lebih tertata, mengurangi) Tj ET
+BT /F1 10.5 Tf 56 464 Td (risiko jadwal bentrok, memudahkan pencatatan transaksi, serta menyediakan laporan) Tj ET
+BT /F1 10.5 Tf 56 449 Td (penggunaan lapangan.) Tj ET
+BT /F1 10.5 Tf 56 427 Td (Penyusunan laporan ini meliputi analisis kebutuhan, perancangan basis data, implementasi) Tj ET
+BT /F1 10.5 Tf 56 412 Td (kode program, debugging, profiling, pengujian, serta hasil demonstrasi sistem. Dengan) Tj ET
+BT /F1 10.5 Tf 56 397 Td (adanya sistem ini, pelanggan dapat melakukan reservasi secara mandiri dan admin dapat) Tj ET
+BT /F1 10.5 Tf 56 382 Td (mengelola reservasi dengan lebih efektif.) Tj ET
+BT /F2 14 Tf 56 352 Td (BAB I PENDAHULUAN) Tj ET
+BT /F2 12 Tf 56 317 Td (1.1 Latar Belakang) Tj ET
+BT /F1 10.5 Tf 56 293 Td (SM Sport Center memiliki 2 lapangan futsal dan 3 lapangan badminton. Sebelumnya proses) Tj ET
+BT /F1 10.5 Tf 56 278 Td (reservasi dilakukan melalui telepon dan WhatsApp. Cara tersebut memiliki beberapa) Tj ET
+BT /F1 10.5 Tf 56 263 Td (kendala, yaitu jadwal bentrok, kesalahan pencatatan transaksi, kesulitan membuat laporan) Tj ET
+BT /F1 10.5 Tf 56 248 Td (penggunaan lapangan, dan sulit mengetahui lapangan yang masih tersedia.) Tj ET
+BT /F1 10.5 Tf 56 226 Td (Oleh karena itu diperlukan sistem reservasi berbasis web yang dapat digunakan oleh) Tj ET
+BT /F1 10.5 Tf 56 211 Td (pelanggan dan admin. Sistem ini diharapkan dapat mengelola data lapangan, data) Tj ET
+BT /F1 10.5 Tf 56 196 Td (pelanggan, reservasi, pembayaran DP, status reservasi, laporan, dan struk reservasi.) Tj ET
+BT /F2 12 Tf 56 168 Td (1.2 Rumusan Masalah) Tj ET
+BT /F1 10.5 Tf 66 144 Td (1. Bagaimana merancang sistem reservasi lapangan berbasis web untuk SM Sport) Tj ET
+BT /F1 10.5 Tf 66 129 Td (   Center?) Tj ET
+BT /F1 10.5 Tf 66 114 Td (2. Bagaimana mencegah terjadinya jadwal bentrok pada proses reservasi?) Tj ET
+BT /F1 10.5 Tf 66 99 Td (3. Bagaimana admin dapat memantau reservasi baru, status pembayaran, dan laporan) Tj ET
+BT /F1 10.5 Tf 66 84 Td (   penggunaan lapangan?) Tj ET
+BT /F1 10.5 Tf 66 69 Td (4. Bagaimana pelanggan dapat melihat jadwal lapangan dan melakukan reservasi) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 3280 >>
+stream
+BT /F1 8 Tf 50 40 Td (Laporan Tugas SM Sport Center - 2) Tj ET
+BT /F1 10.5 Tf 66 788 Td (   secara mandiri?) Tj ET
+BT /F2 12 Tf 56 760 Td (1.3 Tujuan) Tj ET
+BT /F1 10.5 Tf 66 736 Td (1. Membuat aplikasi reservasi lapangan olahraga berbasis web.) Tj ET
+BT /F1 10.5 Tf 66 721 Td (2. Menyediakan fitur login dan registrasi pelanggan.) Tj ET
+BT /F1 10.5 Tf 66 706 Td (3. Menyediakan dashboard ketersediaan lapangan selama 24 jam.) Tj ET
+BT /F1 10.5 Tf 66 691 Td (4. Menyediakan fitur tambah, lihat, edit, hapus, dan pencarian reservasi.) Tj ET
+BT /F1 10.5 Tf 66 676 Td (5. Menyediakan validasi jadwal bentrok.) Tj ET
+BT /F1 10.5 Tf 66 661 Td (6. Menyediakan pencatatan DP wajib minimal Rp50.000 dan status pembayaran.) Tj ET
+BT /F1 10.5 Tf 66 646 Td (7. Menyediakan laporan reservasi dan struk reservasi.) Tj ET
+BT /F2 14 Tf 56 616 Td (BAB II ANALISIS KEBUTUHAN) Tj ET
+BT /F2 12 Tf 56 581 Td (2.1 Aktor Sistem) Tj ET
+BT /F1 10.5 Tf 66 557 Td (1. Admin) Tj ET
+BT /F1 10.5 Tf 56 542 Td (   Admin bertugas mengelola data lapangan, data pelanggan, data reservasi, status) Tj ET
+BT /F1 10.5 Tf 56 527 Td (reservasi, status pembayaran, laporan, dan struk.) Tj ET
+BT /F1 10.5 Tf 66 505 Td (2. Pelanggan) Tj ET
+BT /F1 10.5 Tf 56 490 Td (   Pelanggan dapat registrasi, login, melihat jadwal lapangan, membuat reservasi,) Tj ET
+BT /F1 10.5 Tf 56 475 Td (melihat data reservasinya, dan mencetak struk reservasi.) Tj ET
+BT /F2 12 Tf 56 447 Td (2.2 Kebutuhan Fungsional) Tj ET
+BT /F1 10.5 Tf 66 423 Td (1. Sistem menyediakan fitur login untuk admin dan pelanggan.) Tj ET
+BT /F1 10.5 Tf 66 408 Td (2. Sistem menyediakan fitur registrasi pelanggan baru.) Tj ET
+BT /F1 10.5 Tf 66 393 Td (3. Admin dapat mengelola data lapangan.) Tj ET
+BT /F1 10.5 Tf 66 378 Td (4. Admin dapat mengelola data pelanggan.) Tj ET
+BT /F1 10.5 Tf 66 363 Td (5. Admin dan pelanggan dapat membuat reservasi.) Tj ET
+BT /F1 10.5 Tf 66 348 Td (6. Sistem menolak reservasi jika jadwal bentrok.) Tj ET
+BT /F1 10.5 Tf 66 333 Td (7. Dashboard menampilkan jadwal lapangan selama 24 jam berdasarkan tanggal.) Tj ET
+BT /F1 10.5 Tf 66 318 Td (8. Admin mendapat notifikasi jika ada reservasi baru berstatus menunggu.) Tj ET
+BT /F1 10.5 Tf 66 303 Td (9. Admin dapat mengubah status reservasi menjadi menunggu, dikonfirmasi, selesai,) Tj ET
+BT /F1 10.5 Tf 66 288 Td (   atau dibatalkan.) Tj ET
+BT /F1 10.5 Tf 66 273 Td (10. Admin dapat mengubah status pembayaran menjadi DP/sebagian atau lunas.) Tj ET
+BT /F1 10.5 Tf 66 258 Td (11. Sistem menyediakan input DP wajib minimal Rp50.000.) Tj ET
+BT /F1 10.5 Tf 66 243 Td (12. Sistem menyediakan laporan periode.) Tj ET
+BT /F1 10.5 Tf 66 228 Td (13. Sistem menyediakan struk reservasi yang dapat dicetak.) Tj ET
+BT /F2 12 Tf 56 200 Td (2.3 Kebutuhan Non Fungsional) Tj ET
+BT /F1 10.5 Tf 66 176 Td (1. Keamanan) Tj ET
+BT /F1 10.5 Tf 56 161 Td (   Sistem memisahkan akses admin dan pelanggan menggunakan role middleware.) Tj ET
+BT /F1 10.5 Tf 66 139 Td (2. Keandalan) Tj ET
+BT /F1 10.5 Tf 56 124 Td (   Proses penyimpanan reservasi menggunakan transaksi database dan row locking.) Tj ET
+BT /F1 10.5 Tf 66 102 Td (3. Performa) Tj ET
+BT /F1 10.5 Tf 56 87 Td (   Daftar reservasi dan laporan menggunakan pagination. Relasi data dimuat menggunakan) Tj ET
+BT /F1 10.5 Tf 56 72 Td (eager loading.) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 2506 >>
+stream
+BT /F1 8 Tf 50 40 Td (Laporan Tugas SM Sport Center - 3) Tj ET
+BT /F1 10.5 Tf 66 788 Td (4. Skalabilitas) Tj ET
+BT /F1 10.5 Tf 56 773 Td (   Tabel reservasi memiliki indeks gabungan untuk mempercepat pengecekan jadwal.) Tj ET
+BT /F1 10.5 Tf 66 751 Td (5. Kemudahan Penggunaan) Tj ET
+BT /F1 10.5 Tf 56 736 Td (   Dashboard menampilkan slot kosong dan terisi secara visual. Pelanggan dapat memilih) Tj ET
+BT /F1 10.5 Tf 56 721 Td (slot kosong langsung dari dashboard.) Tj ET
+BT /F2 14 Tf 56 691 Td (BAB III PERANCANGAN SISTEM) Tj ET
+BT /F2 12 Tf 56 656 Td (3.1 Arsitektur Aplikasi) Tj ET
+BT /F1 10.5 Tf 56 632 Td (Aplikasi menggunakan framework Laravel dengan pola Model View Controller. Model) Tj ET
+BT /F1 10.5 Tf 56 617 Td (digunakan untuk mengelola data dan relasi database. View digunakan untuk menampilkan) Tj ET
+BT /F1 10.5 Tf 56 602 Td (antarmuka pengguna. Controller digunakan untuk mengatur validasi, proses bisnis, dan) Tj ET
+BT /F1 10.5 Tf 56 587 Td (response aplikasi.) Tj ET
+BT /F2 12 Tf 56 559 Td (3.2 Entitas Database) Tj ET
+BT /F1 10.5 Tf 56 535 Td (Entitas utama sistem terdiri dari:) Tj ET
+BT /F1 10.5 Tf 66 513 Td (1. users) Tj ET
+BT /F1 10.5 Tf 56 498 Td (   Menyimpan akun login, email, password, dan role.) Tj ET
+BT /F1 10.5 Tf 66 476 Td (2. lapangans) Tj ET
+BT /F1 10.5 Tf 56 461 Td (   Menyimpan data lapangan futsal dan badminton.) Tj ET
+BT /F1 10.5 Tf 66 439 Td (3. pelanggans) Tj ET
+BT /F1 10.5 Tf 56 424 Td (   Menyimpan profil pelanggan.) Tj ET
+BT /F1 10.5 Tf 66 402 Td (4. reservasis) Tj ET
+BT /F1 10.5 Tf 56 387 Td (   Menyimpan transaksi reservasi, jadwal, total harga, DP, status reservasi, dan status) Tj ET
+BT /F1 10.5 Tf 56 372 Td (pembayaran.) Tj ET
+BT /F2 12 Tf 56 344 Td (3.3 Relasi Database) Tj ET
+BT /F1 10.5 Tf 56 320 Td (Relasi database:) Tj ET
+BT /F1 10.5 Tf 66 298 Td (1. Satu user dapat memiliki satu data pelanggan.) Tj ET
+BT /F1 10.5 Tf 66 283 Td (2. Satu pelanggan dapat memiliki banyak reservasi.) Tj ET
+BT /F1 10.5 Tf 66 268 Td (3. Satu lapangan dapat memiliki banyak reservasi.) Tj ET
+BT /F2 12 Tf 56 240 Td (3.4 SQL Script) Tj ET
+BT /F1 10.5 Tf 56 216 Td (SQL script tersedia pada file:) Tj ET
+BT /F1 10.5 Tf 56 194 Td (database/sm_sport_center.sql) Tj ET
+BT /F1 10.5 Tf 56 172 Td (Script tersebut memuat pembuatan database, tabel utama, foreign key, indeks, data) Tj ET
+BT /F1 10.5 Tf 56 157 Td (lapangan, admin, dan beberapa pelanggan.) Tj ET
+BT /F2 14 Tf 56 127 Td (BAB IV IMPLEMENTASI SISTEM) Tj ET
+BT /F2 12 Tf 56 92 Td (4.1 Modul Autentikasi) Tj ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 2924 >>
+stream
+BT /F1 8 Tf 50 40 Td (Laporan Tugas SM Sport Center - 4) Tj ET
+BT /F1 10.5 Tf 56 788 Td (Modul autentikasi menangani login, logout, dan registrasi pelanggan. Pelanggan baru yang) Tj ET
+BT /F1 10.5 Tf 56 773 Td (melakukan registrasi otomatis dibuatkan akun dengan role pelanggan dan data profil) Tj ET
+BT /F1 10.5 Tf 56 758 Td (pelanggan.) Tj ET
+BT /F1 10.5 Tf 56 736 Td (File utama:) Tj ET
+BT /F1 10.5 Tf 56 714 Td (app/Http/Controllers/AuthController.php) Tj ET
+BT /F1 10.5 Tf 56 699 Td (resources/views/auth/login.blade.php) Tj ET
+BT /F1 10.5 Tf 56 684 Td (resources/views/auth/register.blade.php) Tj ET
+BT /F2 12 Tf 56 656 Td (4.2 Modul Dashboard) Tj ET
+BT /F1 10.5 Tf 56 632 Td (Dashboard menampilkan jumlah lapangan, jumlah pelanggan, reservasi hari ini, pendapatan) Tj ET
+BT /F1 10.5 Tf 56 617 Td (bulan ini, dan jadwal 24 jam per lapangan. Slot kosong dapat diklik untuk membuka form) Tj ET
+BT /F1 10.5 Tf 56 602 Td (tambah reservasi dengan data lapangan, tanggal, dan jam yang telah terisi.) Tj ET
+BT /F1 10.5 Tf 56 580 Td (File utama:) Tj ET
+BT /F1 10.5 Tf 56 558 Td (app/Http/Controllers/DashboardController.php) Tj ET
+BT /F1 10.5 Tf 56 543 Td (resources/views/dashboard.blade.php) Tj ET
+BT /F2 12 Tf 56 515 Td (4.3 Modul Reservasi) Tj ET
+BT /F1 10.5 Tf 56 491 Td (Modul reservasi menangani daftar reservasi, tambah, edit, hapus, struk, status) Tj ET
+BT /F1 10.5 Tf 56 476 Td (reservasi, status pembayaran, dan validasi jadwal bentrok.) Tj ET
+BT /F1 10.5 Tf 56 454 Td (Validasi bentrok menggunakan rumus:) Tj ET
+BT /F1 10.5 Tf 56 432 Td (jam_mulai_baru < jam_selesai_lama) Tj ET
+BT /F1 10.5 Tf 56 417 Td (jam_selesai_baru > jam_mulai_lama) Tj ET
+BT /F1 10.5 Tf 56 395 Td (Reservasi berstatus dibatalkan tidak mengunci jadwal.) Tj ET
+BT /F1 10.5 Tf 56 373 Td (File utama:) Tj ET
+BT /F1 10.5 Tf 56 351 Td (app/Http/Controllers/ReservasiController.php) Tj ET
+BT /F1 10.5 Tf 56 336 Td (resources/views/reservasi/index.blade.php) Tj ET
+BT /F1 10.5 Tf 56 321 Td (resources/views/reservasi/form.blade.php) Tj ET
+BT /F1 10.5 Tf 56 306 Td (resources/views/reservasi/receipt.blade.php) Tj ET
+BT /F2 12 Tf 56 278 Td (4.4 Modul Laporan) Tj ET
+BT /F1 10.5 Tf 56 254 Td (Modul laporan menampilkan data reservasi berdasarkan periode, total reservasi, total) Tj ET
+BT /F1 10.5 Tf 56 239 Td (pendapatan dari pembayaran lunas, dan rekap per lapangan.) Tj ET
+BT /F1 10.5 Tf 56 217 Td (File utama:) Tj ET
+BT /F1 10.5 Tf 56 195 Td (app/Http/Controllers/LaporanController.php) Tj ET
+BT /F1 10.5 Tf 56 180 Td (resources/views/laporan/index.blade.php) Tj ET
+BT /F2 12 Tf 56 152 Td (4.5 Modul Notifikasi Admin) Tj ET
+BT /F1 10.5 Tf 56 128 Td (Admin akan melihat badge dan banner notifikasi apabila terdapat reservasi baru dengan) Tj ET
+BT /F1 10.5 Tf 56 113 Td (status menunggu. Setelah admin mengubah status reservasi menjadi dikonfirmasi, selesai,) Tj ET
+BT /F1 10.5 Tf 56 98 Td (atau dibatalkan, jumlah notifikasi akan berkurang.) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Length 2668 >>
+stream
+BT /F1 8 Tf 50 40 Td (Laporan Tugas SM Sport Center - 5) Tj ET
+BT /F2 14 Tf 56 788 Td (BAB V DEBUGGING) Tj ET
+BT /F2 12 Tf 56 753 Td (5.1 Masalah) Tj ET
+BT /F1 10.5 Tf 56 729 Td (Terjadi kasus reservasi tetap tersimpan walaupun jadwal sudah terisi. Hal ini) Tj ET
+BT /F1 10.5 Tf 56 714 Td (menyebabkan double booking pada lapangan yang sama.) Tj ET
+BT /F2 12 Tf 56 686 Td (5.2 Penyebab) Tj ET
+BT /F1 10.5 Tf 56 662 Td (Validasi awal hanya membandingkan jam mulai yang sama, sehingga reservasi dengan waktu) Tj ET
+BT /F1 10.5 Tf 56 647 Td (saling tumpang tindih tetap dapat tersimpan.) Tj ET
+BT /F1 10.5 Tf 56 625 Td (Contoh:) Tj ET
+BT /F1 10.5 Tf 56 603 Td (Reservasi lama: 10.00 sampai 12.00) Tj ET
+BT /F1 10.5 Tf 56 588 Td (Reservasi baru: 11.00 sampai 13.00) Tj ET
+BT /F1 10.5 Tf 56 566 Td (Jika hanya membandingkan jam mulai, sistem tidak mendeteksi bentrok.) Tj ET
+BT /F2 12 Tf 56 538 Td (5.3 Perbaikan) Tj ET
+BT /F1 10.5 Tf 56 514 Td (Perbaikan dilakukan dengan rumus overlap:) Tj ET
+BT /F1 10.5 Tf 56 492 Td (jam mulai baru < jam selesai lama) Tj ET
+BT /F1 10.5 Tf 56 477 Td (jam selesai baru > jam mulai lama) Tj ET
+BT /F1 10.5 Tf 56 455 Td (Query validasi diletakkan di dalam transaksi database dan menggunakan lockForUpdate) Tj ET
+BT /F1 10.5 Tf 56 440 Td (untuk mengurangi risiko race condition.) Tj ET
+BT /F2 14 Tf 56 410 Td (BAB VI PROFILING DAN SKALABILITAS) Tj ET
+BT /F2 12 Tf 56 375 Td (6.1 Hasil Profiling) Tj ET
+BT /F1 10.5 Tf 56 351 Td (Pengukuran ringan production:) Tj ET
+BT /F1 10.5 Tf 66 329 Td (1. Halaman login: status 200, waktu respons 0.674 detik.) Tj ET
+BT /F1 10.5 Tf 66 314 Td (2. Halaman register: status 200, waktu respons 0.191 detik.) Tj ET
+BT /F1 10.5 Tf 66 299 Td (3. Halaman reservasi tanpa login: status 302, waktu respons 0.175 detik.) Tj ET
+BT /F2 12 Tf 56 271 Td (6.2 Potensi Bottleneck) Tj ET
+BT /F1 10.5 Tf 66 247 Td (1. Query daftar reservasi dengan pencarian relasi.) Tj ET
+BT /F1 10.5 Tf 66 232 Td (2. Dashboard jadwal 24 jam.) Tj ET
+BT /F1 10.5 Tf 66 217 Td (3. Laporan periode dengan agregasi data.) Tj ET
+BT /F1 10.5 Tf 66 202 Td (4. Validasi jadwal bentrok saat reservasi bersamaan.) Tj ET
+BT /F2 12 Tf 56 174 Td (6.3 Estimasi Pertumbuhan Data) Tj ET
+BT /F1 10.5 Tf 56 150 Td (Dengan 5 lapangan dan jam operasional 08.00 sampai 23.00, kapasitas teoritis adalah 75) Tj ET
+BT /F1 10.5 Tf 56 135 Td (reservasi per hari. Pada utilisasi 60 persen, estimasi reservasi adalah 45 reservasi per) Tj ET
+BT /F1 10.5 Tf 56 120 Td (hari, 16.425 reservasi per tahun, 82.125 reservasi dalam 5 tahun, dan 164.250 reservasi) Tj ET
+BT /F1 10.5 Tf 56 105 Td (dalam 10 tahun.) Tj ET
+BT /F2 12 Tf 56 77 Td (6.4 Rekomendasi Performa) Tj ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 14 0 R >>
+endobj
+16 0 obj
+<< /Length 2387 >>
+stream
+BT /F1 8 Tf 50 40 Td (Laporan Tugas SM Sport Center - 6) Tj ET
+BT /F1 10.5 Tf 66 788 Td (1. Gunakan indeks pada kolom yang sering difilter.) Tj ET
+BT /F1 10.5 Tf 66 773 Td (2. Gunakan cache untuk statistik dashboard.) Tj ET
+BT /F1 10.5 Tf 66 758 Td (3. Gunakan queue untuk notifikasi dan export laporan.) Tj ET
+BT /F1 10.5 Tf 66 743 Td (4. Batasi rentang tanggal laporan.) Tj ET
+BT /F1 10.5 Tf 66 728 Td (5. Pantau slow query MySQL.) Tj ET
+BT /F1 10.5 Tf 66 713 Td (6. Lakukan backup database dan rotasi log secara berkala.) Tj ET
+BT /F2 14 Tf 56 683 Td (BAB VII PENGUJIAN) Tj ET
+BT /F2 12 Tf 56 648 Td (7.1 Pengujian Unit) Tj ET
+BT /F1 10.5 Tf 56 624 Td (Pengujian otomatis tersedia pada:) Tj ET
+BT /F1 10.5 Tf 56 602 Td (tests/Feature/AuthTest.php) Tj ET
+BT /F1 10.5 Tf 56 587 Td (tests/Feature/ReservasiTest.php) Tj ET
+BT /F1 10.5 Tf 56 565 Td (Skenario yang diuji:) Tj ET
+BT /F1 10.5 Tf 66 543 Td (1. Login benar berhasil masuk dashboard.) Tj ET
+BT /F1 10.5 Tf 66 528 Td (2. Login salah menampilkan error.) Tj ET
+BT /F1 10.5 Tf 66 513 Td (3. Reservasi valid berhasil tersimpan.) Tj ET
+BT /F1 10.5 Tf 66 498 Td (4. Reservasi bentrok ditolak.) Tj ET
+BT /F2 12 Tf 56 470 Td (7.2 Pengujian Integrasi) Tj ET
+BT /F1 10.5 Tf 56 446 Td (Alur integrasi yang diuji:) Tj ET
+BT /F1 10.5 Tf 56 424 Td (Login -> Dashboard -> Pilih Slot -> Reservasi -> Simpan -> Ubah Status -> Struk ->) Tj ET
+BT /F1 10.5 Tf 56 409 Td (Laporan) Tj ET
+BT /F1 10.5 Tf 56 387 Td (Hasil yang diharapkan adalah data reservasi tersimpan, status dapat diubah admin, struk) Tj ET
+BT /F1 10.5 Tf 56 372 Td (dapat dicetak, dan data tampil pada laporan.) Tj ET
+BT /F2 14 Tf 56 342 Td (BAB VIII DEPLOYMENT) Tj ET
+BT /F2 12 Tf 56 307 Td (8.1 Repository) Tj ET
+BT /F1 10.5 Tf 56 283 Td (Source code disimpan pada GitHub:) Tj ET
+BT /F1 10.5 Tf 56 261 Td (https://github.com/djosiya-git/sm-sport-center.git) Tj ET
+BT /F2 12 Tf 56 233 Td (8.2 Hosting) Tj ET
+BT /F1 10.5 Tf 56 209 Td (Aplikasi telah dipasang pada cPanel dengan akses SSH.) Tj ET
+BT /F1 10.5 Tf 56 187 Td (URL production:) Tj ET
+BT /F1 10.5 Tf 56 165 Td (https://smsport.d-webindigital.web.id) Tj ET
+BT /F2 12 Tf 56 137 Td (8.3 Konfigurasi Production) Tj ET
+BT /F1 10.5 Tf 66 113 Td (1. PHP 8.3 pada hosting.) Tj ET
+BT /F1 10.5 Tf 66 98 Td (2. MySQL/MariaDB sebagai database.) Tj ET
+BT /F1 10.5 Tf 66 83 Td (3. Source Laravel diletakkan di luar document root.) Tj ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 16 0 R >>
+endobj
+18 0 obj
+<< /Length 1969 >>
+stream
+BT /F1 8 Tf 50 40 Td (Laporan Tugas SM Sport Center - 7) Tj ET
+BT /F1 10.5 Tf 66 788 Td (4. Document root diarahkan ke entry point yang memuat folder Laravel.) Tj ET
+BT /F1 10.5 Tf 66 773 Td (5. Config, route, dan view cache diaktifkan.) Tj ET
+BT /F2 14 Tf 56 743 Td (BAB IX KESIMPULAN) Tj ET
+BT /F1 10.5 Tf 56 714 Td (Sistem reservasi lapangan SM Sport Center berbasis web telah berhasil dirancang dan) Tj ET
+BT /F1 10.5 Tf 56 699 Td (diimplementasikan. Sistem menyediakan fitur login, registrasi pelanggan, dashboard) Tj ET
+BT /F1 10.5 Tf 56 684 Td (jadwal 24 jam, reservasi, validasi bentrok, DP wajib, status pembayaran, status) Tj ET
+BT /F1 10.5 Tf 56 669 Td (reservasi, notifikasi admin, struk, laporan, serta dokumen pendukung untuk kebutuhan) Tj ET
+BT /F1 10.5 Tf 56 654 Td (asesmen.) Tj ET
+BT /F1 10.5 Tf 56 632 Td (Dengan sistem ini, proses reservasi menjadi lebih rapi, risiko double booking berkurang,) Tj ET
+BT /F1 10.5 Tf 56 617 Td (pencatatan transaksi lebih jelas, dan manajemen dapat melihat laporan penggunaan) Tj ET
+BT /F1 10.5 Tf 56 602 Td (lapangan secara lebih mudah.) Tj ET
+BT /F2 14 Tf 56 572 Td (Lampiran) Tj ET
+BT /F1 10.5 Tf 66 543 Td (1. Analisis kebutuhan: docs/ANALISIS-KEBUTUHAN.md) Tj ET
+BT /F1 10.5 Tf 66 528 Td (2. Analisis skalabilitas: docs/ANALISIS-SKALABILITAS.md) Tj ET
+BT /F1 10.5 Tf 66 513 Td (3. ERD dan SQL: docs/ERD-DAN-SQL.md) Tj ET
+BT /F1 10.5 Tf 66 498 Td (4. SQL script: database/sm_sport_center.sql) Tj ET
+BT /F1 10.5 Tf 66 483 Td (5. Dokumentasi kode program: docs/DOKUMENTASI-KODE-PROGRAM.md) Tj ET
+BT /F1 10.5 Tf 66 468 Td (6. Laporan debugging: docs/LAPORAN-DEBUGGING.md) Tj ET
+BT /F1 10.5 Tf 66 453 Td (7. Hasil profiling: docs/HASIL-PROFILING.md) Tj ET
+BT /F1 10.5 Tf 66 438 Td (8. Dokumen testing: docs/DOKUMEN-TESTING.md) Tj ET
+BT /F1 10.5 Tf 66 423 Td (9. Laporan integrasi testing: docs/LAPORAN-INTEGRASI-TESTING.md) Tj ET
+BT /F1 10.5 Tf 66 408 Td (10. Perancangan dan demo: docs/PERANCANGAN-DAN-DEMO.md) Tj ET
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 18 0 R >>
+endobj
+xref
+0 20
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000156 00000 n 
+0000000226 00000 n 
+0000000301 00000 n 
+0000000369 00000 n 
+0000003681 00000 n 
+0000003827 00000 n 
+0000007159 00000 n 
+0000007305 00000 n 
+0000009864 00000 n 
+0000010012 00000 n 
+0000012989 00000 n 
+0000013137 00000 n 
+0000015858 00000 n 
+0000016006 00000 n 
+0000018446 00000 n 
+0000018594 00000 n 
+0000020616 00000 n 
+trailer
+<< /Size 20 /Root 1 0 R >>
+startxref
+20764
+%%EOF

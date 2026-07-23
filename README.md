@@ -63,6 +63,8 @@ php artisan test
 Dokumen bukti tersedia pada folder `docs/`.
 
 - `docs/INDEX-BUKTI-SKENARIO.md`
+- `docs/LAPORAN-TUGAS-SM-SPORT-CENTER.pdf`
+- `docs/LAPORAN-TUGAS-SM-SPORT-CENTER.md`
 - `docs/ANALISIS-KEBUTUHAN.md`
 - `docs/ANALISIS-SKALABILITAS.md`
 - `docs/ERD-DAN-SQL.md`

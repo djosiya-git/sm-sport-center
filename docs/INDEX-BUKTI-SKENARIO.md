@@ -2,6 +2,13 @@
 
 Dokumen ini memetakan permintaan pada bagian "Skenario Terlampir" ke artefak di project SM Sport Center.
 
+Laporan gabungan tersedia pada:
+
+```text
+docs/LAPORAN-TUGAS-SM-SPORT-CENTER.pdf
+docs/LAPORAN-TUGAS-SM-SPORT-CENTER.md
+```
+
 | No | Bukti yang Dikumpulkan | File / Lokasi |
 |---|---|---|
 | 1 | Dokumen Analisis Skalabilitas Perangkat Lunak | `docs/ANALISIS-SKALABILITAS.md` |
