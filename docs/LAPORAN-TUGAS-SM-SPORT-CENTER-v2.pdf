@@ -109,7 +109,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 8 0 R >>
 endobj
 10 0 obj
-<< /Length 2506 >>
+<< /Length 2502 >>
 stream
 BT /F1 8 Tf 50 40 Td (Laporan Tugas SM Sport Center - 3) Tj ET
 BT /F1 10.5 Tf 66 788 Td (4. Skalabilitas) Tj ET
@@ -125,13 +125,13 @@ BT /F1 10.5 Tf 56 602 Td (antarmuka pengguna. Controller digunakan untuk mengatu
 BT /F1 10.5 Tf 56 587 Td (response aplikasi.) Tj ET
 BT /F2 12 Tf 56 559 Td (3.2 Entitas Database) Tj ET
 BT /F1 10.5 Tf 56 535 Td (Entitas utama sistem terdiri dari:) Tj ET
-BT /F1 10.5 Tf 66 513 Td (1. users) Tj ET
+BT /F1 10.5 Tf 66 513 Td (1. user) Tj ET
 BT /F1 10.5 Tf 56 498 Td (   Menyimpan akun login, email, password, dan role.) Tj ET
-BT /F1 10.5 Tf 66 476 Td (2. lapangans) Tj ET
+BT /F1 10.5 Tf 66 476 Td (2. lapangan) Tj ET
 BT /F1 10.5 Tf 56 461 Td (   Menyimpan data lapangan futsal dan badminton.) Tj ET
-BT /F1 10.5 Tf 66 439 Td (3. pelanggans) Tj ET
+BT /F1 10.5 Tf 66 439 Td (3. pelanggan) Tj ET
 BT /F1 10.5 Tf 56 424 Td (   Menyimpan profil pelanggan.) Tj ET
-BT /F1 10.5 Tf 66 402 Td (4. reservasis) Tj ET
+BT /F1 10.5 Tf 66 402 Td (4. reservasi) Tj ET
 BT /F1 10.5 Tf 56 387 Td (   Menyimpan transaksi reservasi, jadwal, total harga, DP, status reservasi, dan status) Tj ET
 BT /F1 10.5 Tf 56 372 Td (pembayaran.) Tj ET
 BT /F2 12 Tf 56 344 Td (3.3 Relasi Database) Tj ET
@@ -326,17 +326,17 @@ xref
 0000003827 00000 n 
 0000007159 00000 n 
 0000007305 00000 n 
-0000009864 00000 n 
-0000010012 00000 n 
-0000012989 00000 n 
-0000013137 00000 n 
-0000015858 00000 n 
-0000016006 00000 n 
-0000018446 00000 n 
-0000018594 00000 n 
-0000020616 00000 n 
+0000009860 00000 n 
+0000010008 00000 n 
+0000012985 00000 n 
+0000013133 00000 n 
+0000015854 00000 n 
+0000016002 00000 n 
+0000018442 00000 n 
+0000018590 00000 n 
+0000020612 00000 n 
 trailer
 << /Size 20 /Root 1 0 R >>
 startxref
-20764
+20760
 %%EOF

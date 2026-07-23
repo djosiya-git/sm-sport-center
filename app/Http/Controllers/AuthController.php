@@ -19,7 +19,7 @@ class AuthController extends Controller {
  public function register(Request $request): RedirectResponse {
   $data=$request->validate([
    'name'=>['required','string','max:255'],
-   'email'=>['required','email','max:255','unique:users,email'],
+   'email'=>['required','email','max:255','unique:user,email'],
    'password'=>['required','confirmed',Password::min(8)],
    'no_telepon'=>['required','string','max:20'],
    'alamat'=>['nullable','string','max:500'],

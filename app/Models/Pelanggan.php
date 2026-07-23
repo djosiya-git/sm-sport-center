@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 class Pelanggan extends Model {
  use HasFactory;
+ protected $table='pelanggan';
  protected $fillable=['user_id','kode_pelanggan','nama','no_telepon','alamat'];
  public function user(): BelongsTo { return $this->belongsTo(User::class); }
  public function reservasis(): HasMany { return $this->hasMany(Reservasi::class); }

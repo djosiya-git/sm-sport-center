@@ -5,7 +5,7 @@ Dokumen ini memetakan permintaan pada bagian "Skenario Terlampir" ke artefak di 
 Laporan gabungan tersedia pada:
 
 ```text
-docs/LAPORAN-TUGAS-SM-SPORT-CENTER.pdf
+docs/LAPORAN-TUGAS-SM-SPORT-CENTER-v2.pdf
 docs/LAPORAN-TUGAS-SM-SPORT-CENTER.md
 ```
 

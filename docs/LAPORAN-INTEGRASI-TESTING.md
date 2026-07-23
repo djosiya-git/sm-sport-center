@@ -35,7 +35,7 @@ DP: 50000
 | 9 | Buka laporan periode | Reservasi tampil dalam laporan dan pendapatan dihitung jika lunas | Lulus |
 
 ## Evaluasi
-Alur Login -> Reservasi -> Simpan -> Laporan telah tersedia dalam aplikasi. Validasi bentrok mencegah reservasi pada rentang waktu yang sudah terisi. Data laporan mengambil sumber dari tabel `reservasis` dan relasi `lapangans` serta `pelanggans`.
+Alur Login -> Reservasi -> Simpan -> Laporan telah tersedia dalam aplikasi. Validasi bentrok mencegah reservasi pada rentang waktu yang sudah terisi. Data laporan mengambil sumber dari tabel `reservasi` dan relasi `lapangan` serta `pelanggan`.
 
 ## Catatan Perbaikan
 1. Ditambahkan dashboard jadwal 24 jam untuk memudahkan pemilihan slot.

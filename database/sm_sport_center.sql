@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS sm_sport_center CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE sm_sport_center;
 
-CREATE TABLE users (
+CREATE TABLE user (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
  name VARCHAR(255) NOT NULL,
  email VARCHAR(255) NOT NULL UNIQUE,
@@ -13,7 +13,7 @@ CREATE TABLE users (
  updated_at TIMESTAMP NULL
 ) ENGINE=InnoDB;
 
-CREATE TABLE lapangans (
+CREATE TABLE lapangan (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
  kode_lapangan VARCHAR(20) NOT NULL UNIQUE,
  nama_lapangan VARCHAR(100) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE lapangans (
  INDEX idx_jenis_status (jenis,status)
 ) ENGINE=InnoDB;
 
-CREATE TABLE pelanggans (
+CREATE TABLE pelanggan (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
  user_id BIGINT UNSIGNED NULL UNIQUE,
  kode_pelanggan VARCHAR(20) NOT NULL UNIQUE,
@@ -35,11 +35,11 @@ CREATE TABLE pelanggans (
  alamat TEXT NULL,
  created_at TIMESTAMP NULL,
  updated_at TIMESTAMP NULL,
- CONSTRAINT fk_pelanggan_user FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE SET NULL,
+ CONSTRAINT fk_pelanggan_user FOREIGN KEY(user_id) REFERENCES user(id) ON DELETE SET NULL,
  INDEX idx_pelanggan_nama (nama)
 ) ENGINE=InnoDB;
 
-CREATE TABLE reservasis (
+CREATE TABLE reservasi (
  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
  kode_reservasi VARCHAR(30) NOT NULL UNIQUE,
  pelanggan_id BIGINT UNSIGNED NOT NULL,
@@ -56,24 +56,24 @@ CREATE TABLE reservasis (
  catatan TEXT NULL,
  created_at TIMESTAMP NULL,
  updated_at TIMESTAMP NULL,
- CONSTRAINT fk_reservasi_pelanggan FOREIGN KEY(pelanggan_id) REFERENCES pelanggans(id) ON DELETE RESTRICT,
- CONSTRAINT fk_reservasi_lapangan FOREIGN KEY(lapangan_id) REFERENCES lapangans(id) ON DELETE RESTRICT,
+ CONSTRAINT fk_reservasi_pelanggan FOREIGN KEY(pelanggan_id) REFERENCES pelanggan(id) ON DELETE RESTRICT,
+ CONSTRAINT fk_reservasi_lapangan FOREIGN KEY(lapangan_id) REFERENCES lapangan(id) ON DELETE RESTRICT,
  INDEX reservasi_jadwal_index (lapangan_id,tanggal,jam_mulai,jam_selesai),
  INDEX idx_tanggal_status (tanggal,status_reservasi)
 ) ENGINE=InnoDB;
 
-INSERT INTO lapangans(kode_lapangan,nama_lapangan,jenis,harga_per_jam,status,created_at,updated_at) VALUES
+INSERT INTO lapangan(kode_lapangan,nama_lapangan,jenis,harga_per_jam,status,created_at,updated_at) VALUES
 ('FUT-01','Lapangan Futsal 1','futsal',150000,'tersedia',NOW(),NOW()),
 ('FUT-02','Lapangan Futsal 2','futsal',150000,'tersedia',NOW(),NOW()),
 ('BDM-01','Lapangan Badminton 1','badminton',50000,'tersedia',NOW(),NOW()),
 ('BDM-02','Lapangan Badminton 2','badminton',50000,'tersedia',NOW(),NOW()),
 ('BDM-03','Lapangan Badminton 3','badminton',50000,'tersedia',NOW(),NOW());
 
-INSERT INTO users(name,email,password,role,created_at,updated_at) VALUES
+INSERT INTO user(name,email,password,role,created_at,updated_at) VALUES
 ('Administrator','admin@smsport.test','$2y$10$8DoMVZ411FTATK0D2fZE.uFSIW5tpm2c53tehbVQNp0U9VzPkiRGq','admin',NOW(),NOW()),
 ('Budi Santoso','pelanggan@smsport.test','$2y$10$GDINpl4XuqHceLObXicuyO4/cdukmKmuqo54.k.5M8ROvbQD7FZdW','pelanggan',NOW(),NOW()),
 ('Siti Aminah','siti@smsport.test','$2y$10$GDINpl4XuqHceLObXicuyO4/cdukmKmuqo54.k.5M8ROvbQD7FZdW','pelanggan',NOW(),NOW());
 
-INSERT INTO pelanggans(user_id,kode_pelanggan,nama,no_telepon,alamat,created_at,updated_at) VALUES
-((SELECT id FROM users WHERE email='pelanggan@smsport.test'),'PLG-0001','Budi Santoso','081234567890','Jakarta',NOW(),NOW()),
-((SELECT id FROM users WHERE email='siti@smsport.test'),'PLG-0002','Siti Aminah','082233445566','Bekasi',NOW(),NOW());
+INSERT INTO pelanggan(user_id,kode_pelanggan,nama,no_telepon,alamat,created_at,updated_at) VALUES
+((SELECT id FROM user WHERE email='pelanggan@smsport.test'),'PLG-0001','Budi Santoso','081234567890','Jakarta',NOW(),NOW()),
+((SELECT id FROM user WHERE email='siti@smsport.test'),'PLG-0002','Siti Aminah','082233445566','Bekasi',NOW(),NOW());

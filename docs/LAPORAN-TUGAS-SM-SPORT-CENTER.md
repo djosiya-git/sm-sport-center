@@ -95,16 +95,16 @@ Aplikasi menggunakan framework Laravel dengan pola Model View Controller. Model 
 
 Entitas utama sistem terdiri dari:
 
-1. users
+1. user
    Menyimpan akun login, email, password, dan role.
 
-2. lapangans
+2. lapangan
    Menyimpan data lapangan futsal dan badminton.
 
-3. pelanggans
+3. pelanggan
    Menyimpan profil pelanggan.
 
-4. reservasis
+4. reservasi
    Menyimpan transaksi reservasi, jadwal, total harga, DP, status reservasi, dan status pembayaran.
 
 ### 3.3 Relasi Database

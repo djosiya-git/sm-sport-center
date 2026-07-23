@@ -3,16 +3,16 @@
 ## Entitas dan Relasi
 Sistem menggunakan lima tabel utama:
 
-1. `users`
+1. `user`
    Menyimpan akun login dan role pengguna.
 
-2. `lapangans`
+2. `lapangan`
    Menyimpan master lapangan futsal dan badminton.
 
-3. `pelanggans`
-   Menyimpan profil pelanggan. Satu pelanggan dapat terhubung ke satu `users`.
+3. `pelanggan`
+   Menyimpan profil pelanggan. Satu pelanggan dapat terhubung ke satu `user`.
 
-4. `reservasis`
+4. `reservasi`
    Menyimpan transaksi reservasi. Setiap reservasi terhubung ke satu pelanggan dan satu lapangan.
 
 5. `sessions`, `cache`, `cache_locks`
@@ -20,32 +20,32 @@ Sistem menggunakan lima tabel utama:
 
 ## Relasi
 ```text
-users 1 -- 0..1 pelanggans
-pelanggans 1 -- * reservasis
-lapangans 1 -- * reservasis
+user 1 -- 0..1 pelanggan
+pelanggan 1 -- * reservasi
+lapangan 1 -- * reservasi
 ```
 
 ## Struktur Kunci
 ```text
-users.id                      PK
-pelanggans.id                 PK
-pelanggans.user_id            FK -> users.id
-lapangans.id                  PK
-reservasis.id                 PK
-reservasis.pelanggan_id       FK -> pelanggans.id
-reservasis.lapangan_id        FK -> lapangans.id
-reservasis.kode_reservasi     UNIQUE
+user.id                      PK
+pelanggan.id                 PK
+pelanggan.user_id            FK -> user.id
+lapangan.id                  PK
+reservasi.id                 PK
+reservasi.pelanggan_id       FK -> pelanggan.id
+reservasi.lapangan_id        FK -> lapangan.id
+reservasi.kode_reservasi     UNIQUE
 ```
 
 ## Indeks Penting
 ```text
-lapangans(jenis, status)
-pelanggans(nama)
-reservasis(lapangan_id, tanggal, jam_mulai, jam_selesai)
-reservasis(tanggal, status_reservasi)
+lapangan(jenis, status)
+pelanggan(nama)
+reservasi(lapangan_id, tanggal, jam_mulai, jam_selesai)
+reservasi(tanggal, status_reservasi)
 ```
 
-Indeks `reservasis(lapangan_id, tanggal, jam_mulai, jam_selesai)` digunakan untuk mempercepat validasi jadwal bentrok.
+Indeks `reservasi(lapangan_id, tanggal, jam_mulai, jam_selesai)` digunakan untuk mempercepat validasi jadwal bentrok.
 
 ## SQL Script
 SQL script tersedia pada:
@@ -56,7 +56,7 @@ database/sm_sport_center.sql
 
 Script tersebut memuat:
 1. Pembuatan database `sm_sport_center`.
-2. Tabel `users`, `lapangans`, `pelanggans`, dan `reservasis`.
+2. Tabel `user`, `lapangan`, `pelanggan`, dan `reservasi`.
 3. Foreign key antar tabel.
 4. Indeks untuk pencarian dan validasi jadwal.
 5. Data awal 2 lapangan futsal, 3 lapangan badminton, admin, dan beberapa pelanggan.

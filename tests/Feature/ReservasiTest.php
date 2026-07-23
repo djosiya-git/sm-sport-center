@@ -38,7 +38,7 @@ class ReservasiTest extends TestCase
             'status_pembayaran' => 'sebagian',
         ])->assertRedirect('/reservasi');
 
-        $this->assertDatabaseHas('reservasis', [
+        $this->assertDatabaseHas('reservasi', [
             'pelanggan_id' => $pelanggan->id,
             'lapangan_id' => $lapangan->id,
             'jam_mulai' => '10:00',
@@ -83,6 +83,6 @@ class ReservasiTest extends TestCase
         $this->actingAs($admin)->post('/reservasi', $payload)
             ->assertSessionHasErrors('jam_mulai');
 
-        $this->assertDatabaseCount('reservasis', 1);
+        $this->assertDatabaseCount('reservasi', 1);
     }
 }
